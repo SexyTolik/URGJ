@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class AbstractState : MonoBehaviour
+public abstract class AbstractState
 {
-    // Start is called before the first frame update
-    void Start()
+   protected BaseFSM fsm;
+
+    public AbstractState(BaseFSM Somefsm)
     {
-        
+        fsm = Somefsm;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public virtual void EnterState() { }
+    public virtual void UpdateState() { }
+    public virtual void ExitState() { }
+
 }
