@@ -5,7 +5,6 @@ using UnityEngine;
 public class BaseFSM
 {
     private AbstractState CurrentState;
-    [SerializeField]
     private Dictionary<Type, AbstractState> _states = new Dictionary<Type, AbstractState>();
 
     public void AddState(AbstractState state)

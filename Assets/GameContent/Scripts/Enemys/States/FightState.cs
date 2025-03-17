@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class FightState : AbstractState
 {
-    public FightState(BaseFSM fsm) : base(fsm) { }
+    private Transform _PlayerTr;
+    private Transform _EnemyTr;
+    private BaseFSM _FSM;
+    private WeaphonController _Weapon;
+    public FightState(BaseFSM fsm, Transform player, Transform enemy, WeaphonController weaphon) : base(fsm)
+    {
+        _FSM = fsm;
+        _PlayerTr = player;
+        _EnemyTr = enemy;
+        _Weapon = weaphon;
+    }
     public override void EnterState()
     {
         Debug.Log("State entered");
@@ -12,11 +22,44 @@ public class FightState : AbstractState
 
     public override void UpdateState()
     {
-        Debug.Log("State updated");
+        if (checkPlayerInVision())
+        {
+            _EnemyTr.LookAt(_PlayerTr);
+            _Weapon.MakeShoot(_PlayerTr.position);
+        }
+        
     }
 
     public override void ExitState()
     {
         Debug.Log("State Exited");
+    }
+
+    private bool checkPlayerInVision()
+    {
+        Vector3 direction = _PlayerTr.position - _EnemyTr.position;
+        float distance = direction.magnitude;
+
+        Debug.DrawLine(_EnemyTr.position, _PlayerTr.position, Color.yellow);
+
+        // ѕускаем луч от противника к игроку
+        if (Physics.Raycast(_EnemyTr.position, direction, out RaycastHit hit, distance, LayerMask.GetMask("Obstacle")))
+        {
+            // ≈сли луч столкнулс€ с преп€тствием до достижени€ игрока
+            if (hit.collider.CompareTag("Player") == false)
+            {
+                _FSM.SetState<IdleState>();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            _FSM.SetState<IdleState>();
+            return false;
+        }
     }
 }
