@@ -1,3 +1,4 @@
+using GameContent.Scripts.Player;
 using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour

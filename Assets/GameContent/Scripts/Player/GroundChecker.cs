@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
-public class GroundChecker : MonoBehaviour
+namespace GameContent.Scripts.Player
 {
-    [SerializeField] private Transform _checkSpot;
-    [SerializeField] private float _checkRadius = 1f;
-    [SerializeField] private LayerMask _checkMask;
-
-    public bool Check()
+    public class GroundChecker : MonoBehaviour
     {
-        return Physics.CheckSphere(_checkSpot.position, _checkRadius, _checkMask);
+        [SerializeField] private Transform _checkSpot;
+        [SerializeField] private float _checkRadius = 1f;
+        [SerializeField] private LayerMask _checkMask;
+
+        public bool Check()
+        {
+            return Physics.CheckSphere(_checkSpot.position, _checkRadius, _checkMask);
+        }
     }
 }
