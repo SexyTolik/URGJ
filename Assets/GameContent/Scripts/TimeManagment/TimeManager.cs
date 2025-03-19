@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TimeBehaviour : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float _timeMultiplier = 1f;
     private float _timer = 0f;
