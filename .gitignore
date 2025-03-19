@@ -62,7 +62,6 @@ sysinfo.txt
 *.app
 *.lib
 *.dylib
-*.meta
 
 # Crashlytics generated file
 crashlytics-build.properties
