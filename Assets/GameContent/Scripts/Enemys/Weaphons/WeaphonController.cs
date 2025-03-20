@@ -21,7 +21,8 @@ public class WeaphonController : MonoBehaviour
         if(Time.time > TimeToNextShoot)
         {
            rb = bulmanager.SpawnBullet(firePoint.position).GetComponent<Rigidbody>();
-           rb.velocity = (target - firePoint.position) *ProjectileSpeed;
+            Vector3 dir = new Vector3((target - firePoint.position).x, 0, (target - firePoint.position).z);
+           rb.velocity = dir * ProjectileSpeed;
             TimeToNextShoot = Time.time+ShootCoolDown;
         }
     }

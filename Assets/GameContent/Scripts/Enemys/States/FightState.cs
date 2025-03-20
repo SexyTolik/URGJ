@@ -24,7 +24,9 @@ public class FightState : AbstractState
     {
         if (checkPlayerInVision())
         {
-            _EnemyTr.LookAt(_PlayerTr);
+            Quaternion rotation = _EnemyTr.rotation;
+            rotation.SetLookRotation(_PlayerTr.position, Vector3.up);
+            _EnemyTr.rotation = new Quaternion(0,rotation.y,0,rotation.w);
             _Weapon.MakeShoot(_PlayerTr.position);
         }
         
@@ -43,7 +45,7 @@ public class FightState : AbstractState
         Debug.DrawLine(_EnemyTr.position, _PlayerTr.position, Color.yellow);
 
         // ѕускаем луч от противника к игроку
-        if (Physics.Raycast(_EnemyTr.position, direction, out RaycastHit hit, distance, LayerMask.GetMask("Obstacle")))
+        if (Physics.Raycast(_EnemyTr.position, direction, out RaycastHit hit, distance))
         {
             // ≈сли луч столкнулс€ с преп€тствием до достижени€ игрока
             if (hit.collider.CompareTag("Player") == false)

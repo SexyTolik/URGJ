@@ -24,7 +24,7 @@ public class BulletManager : MonoBehaviour
         bulletPool = new ObjectPool<GameObject>(
             createFunc: () => Instantiate(bulletPrefab), // Создание нового объекта
             actionOnGet: (bullet) => bullet.SetActive(true), // При получении из пула
-            actionOnRelease: (bullet) => bullet.SetActive(false), // При возврате в пул
+            actionOnRelease: (bullet) => bullet.GetComponent<Projectile>().Deactivate(), // При возврате в пул
             actionOnDestroy: (bullet) => Destroy(bullet), // При уничтожении
             collectionCheck: true, // Проверка на повторное добавление
             defaultCapacity: 10, // Начальный размер

@@ -34,7 +34,7 @@ public class IdleState : AbstractState
         float distance = direction.magnitude;
 
         // ѕускаем луч от противника к игроку
-        if (Physics.Raycast(EnemyTr.position, direction, out RaycastHit hit, distance, LayerMask.GetMask("Obstacle")))
+        if (Physics.Raycast(EnemyTr.position, direction, out RaycastHit hit, distance))
         {
             // ≈сли луч столкнулс€ с преп€тствием до достижени€ игрока
             if (hit.collider.CompareTag("Player") == false)
