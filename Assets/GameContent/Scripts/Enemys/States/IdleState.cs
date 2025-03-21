@@ -15,7 +15,7 @@ public class IdleState : AbstractState
     }
     public override void EnterState()
     {
-        Debug.Log("State entered");
+
     }
 
     public override void UpdateState()
@@ -25,7 +25,7 @@ public class IdleState : AbstractState
 
     public override void ExitState()
     {
-        Debug.Log("State Exited");
+
     }
 
     private void checkPlayerInVision()
@@ -39,17 +39,17 @@ public class IdleState : AbstractState
             // Если луч столкнулся с препятствием до достижения игрока
             if (hit.collider.CompareTag("Player") == false)
             {
-                Debug.Log("Препятствие обнаружено: " + hit.collider.name);
+
             }
             else
             {
-                Debug.Log("Игрок обнаружен");
+
                 _FSM.SetState<FightState>();
             }
         }
         else
         {
-            Debug.Log("Ничего не обнаружено");
+
         }
 
         // Визуализация луча в редакторе

@@ -17,7 +17,7 @@ public class FightState : AbstractState
     }
     public override void EnterState()
     {
-        Debug.Log("State entered");
+
     }
 
     public override void UpdateState()
@@ -34,7 +34,7 @@ public class FightState : AbstractState
 
     public override void ExitState()
     {
-        Debug.Log("State Exited");
+
     }
 
     private bool checkPlayerInVision()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Hand : MonoBehaviour
 {
@@ -15,8 +16,10 @@ public class Hand : MonoBehaviour
     private bool isFinished = false;
 
     public ParryController parryController;
+    Tween curAnim;
     private void FixedUpdate() // я попытался в одном фиксед апдейте чисто на условиях сделать анимацию туда и обратно. осталось парирование вставить и тестить
     {
+        /*
         if (!isMoving) return;
         transform.LookAt(Target);
         elapsedTime += Time.fixedDeltaTime;
@@ -42,14 +45,35 @@ public class Hand : MonoBehaviour
                 isFinished = true;
             }
             
-        }
+        } */
+    }
+
+    private void Update()
+    {
+        transform.rotation.SetLookRotation(Target.position);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Projectile>(out var bullet)) 
         { 
-            bullet.IsPaired = true;
+            
         }
+        
+    }
+
+    public void MoveToTarg()
+    {
+        Debug.Log("рука заспавнилась в " + transform.position);
+        curAnim = transform.DOPunchPosition(Target.position - transform.position, 0.2f,1);//.SetLoops(1,LoopType.Yoyo);
+        Target.GetComponent<Projectile>().IsPaired = true;
+        parryController.Parry(Target.GetComponent<Rigidbody>());
+        StartCoroutine(KillHand());
+    }
+
+    IEnumerator KillHand()
+    {
+        yield return curAnim.WaitForCompletion();
+        HandsPoolController.Instance.ReturnHand(gameObject);
     }
 }

@@ -451,6 +451,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937440629826913172, guid: 909adf0bf73310e47855b1abfa6537d0,
         type: 3}
+      propertyPath: ParryCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 937440629826913172, guid: 909adf0bf73310e47855b1abfa6537d0,
+        type: 3}
       propertyPath: SuperParryRadius
       value: 1
       objectReference: {fileID: 0}
