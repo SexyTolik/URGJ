@@ -1,29 +1,32 @@
 using UnityEngine;
 
-public class TimeScaleManager : MonoBehaviour
+namespace GameContent.Scripts.TimeManagment
 {
-    [SerializeField] private float _timeMultiplier = 1f;
-    
-    private float _fixedDeltaTimeOrig;
-    
-    private void Awake()
+    public class TimeScaleManager : MonoBehaviour
     {
-        _fixedDeltaTimeOrig = Time.fixedDeltaTime;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        [SerializeField] private float _timeMultiplier = 1f;
+    
+        private float _fixedDeltaTimeOrig;
+    
+        private void Awake()
         {
-            if (Time.timeScale != 1f) return;
-            Time.timeScale = _timeMultiplier;
-            Time.fixedDeltaTime = this._fixedDeltaTimeOrig * Time.timeScale;
+            _fixedDeltaTimeOrig = Time.fixedDeltaTime;
         }
-        
-        if (Input.GetKeyUp(KeyCode.Space))
+
+        private void Update()
         {
-            Time.timeScale = 1f;
-            Time.fixedDeltaTime = _fixedDeltaTimeOrig;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (Time.timeScale != 1f) return;
+                Time.timeScale = _timeMultiplier;
+                Time.fixedDeltaTime = this._fixedDeltaTimeOrig * Time.timeScale;
+            }
+        
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                Time.timeScale = 1f;
+                Time.fixedDeltaTime = _fixedDeltaTimeOrig;
+            }
         }
     }
 }
