@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6600246010527368771}
-  - component: {fileID: 4490598391008514050}
-  - component: {fileID: 6360189456273122697}
-  - component: {fileID: 7908975243908161134}
-  - component: {fileID: -1807336089822017020}
+  - component: {fileID: 630751276889419161}
+  - component: {fileID: 1861035514848917000}
+  - component: {fileID: 5132978293753450260}
+  - component: {fileID: 8822328482433763504}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -32,10 +32,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.5, z: 0.1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8454392172982308337}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &4490598391008514050
+--- !u!33 &630751276889419161
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +44,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2391131534229432843}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6360189456273122697
+--- !u!23 &1861035514848917000
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7908975243908161134
+--- !u!65 &5132978293753450260
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,7 +107,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.2, z: 1.0000002}
   m_Center: {x: 0, y: 0.95, z: 0}
---- !u!114 &-1807336089822017020
+--- !u!114 &8822328482433763504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,3 +126,34 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   isMoving: 0
   parryController: {fileID: 0}
+--- !u!1 &3484038641705085983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8454392172982308337}
+  m_Layer: 0
+  m_Name: GFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8454392172982308337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484038641705085983}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 5.6060658, y: 0.017173722, z: 0.81515014}
+  m_LocalScale: {x: 10, y: 9.999997, z: 1.9999995}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6600246010527368771}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
