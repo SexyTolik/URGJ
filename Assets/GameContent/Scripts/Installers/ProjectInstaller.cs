@@ -8,12 +8,13 @@ namespace GameContent.Scripts.Installers
     public class ProjectInstaller : MonoInstaller
     {
         [SerializeField] private AudioManager _audioManager;
-        [SerializeField] private SceneLoader _sceneLoader;
-    
+        
         public override void InstallBindings()
         {
-            Container.BindInstance<AudioManager>(_audioManager).AsSingle();
-            Container.BindInstance<SceneLoader>(_sceneLoader).AsSingle();
+            Container.Bind<SceneLoader>().AsSingle();
+            
+            AudioManager audioManager = Container.InstantiatePrefabForComponent<AudioManager>(_audioManager);
+            Container.BindInstance(audioManager).AsSingle();
         }
     }
 }

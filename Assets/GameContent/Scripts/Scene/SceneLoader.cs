@@ -3,11 +3,16 @@ using UnityEngine.SceneManagement;
 
 namespace GameContent.Scripts.Scene
 {
-    public class SceneLoader : MonoBehaviour
+    public class SceneLoader
     {
-        public void ChangeScene(int sceneIndex)
+        public void LoadSceneByIndex(int sceneIndex)
         {
             SceneManager.LoadScene(sceneIndex);
+        }
+
+        public void ExitGame()
+        {
+            Application.Quit();
         }
     }
 }
