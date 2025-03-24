@@ -15,14 +15,14 @@ namespace GameContent.Scripts.TimeManagment
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 if (Time.timeScale != 1f) return;
                 Time.timeScale = _timeMultiplier;
                 Time.fixedDeltaTime = this._fixedDeltaTimeOrig * Time.timeScale;
             }
         
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Mouse1))
             {
                 Time.timeScale = 1f;
                 Time.fixedDeltaTime = _fixedDeltaTimeOrig;

@@ -50,7 +50,7 @@ public class Hand : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation.SetLookRotation(Target.position);
+        transform.rotation.SetLookRotation(Target.position,Vector3.up);
     }
 
     private void OnTriggerEnter(Collider other)

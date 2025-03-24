@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 7723162322700256188}
   - component: {fileID: 1421824243779245431}
   - component: {fileID: 4270267254152444057}
-  - component: {fileID: 7117577175248406460}
+  - component: {fileID: 5478466683857311516}
   m_Layer: 0
   m_Name: EnemyBase
   m_TagString: Untagged
@@ -219,9 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce95e1fbb92a9b48bda5b05ff7242cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  PlayerTr: {fileID: 0}
   Enemy: {fileID: 7723162322700256188}
-  Gun: {fileID: 7117577175248406460}
+  Gun: {fileID: 5478466683857311516}
+  DyingParticle: {fileID: 4963555048538656051, guid: f14cd40a669aaa0478f91cb49edffb29,
+    type: 3}
 --- !u!54 &4270267254152444057
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -249,7 +251,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &7117577175248406460
+--- !u!114 &5478466683857311516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,12 +260,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7864725576343106333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24dc3b5605afa5a478ff4be628b3d9d2, type: 3}
+  m_Script: {fileID: 11500000, guid: dbf72a569914d584899ab108dcee67db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootCoolDown: 2
-  ProjectileSpeed: 30
+  ShootCoolDown: 3
+  ProjectileSpeed: 15
   firePoint: {fileID: 8308696111871823711}
+  PistolModel: {fileID: 853743490996664174}
 --- !u!1 &8308570803342265799
 GameObject:
   m_ObjectHideFlags: 0

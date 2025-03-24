@@ -26,7 +26,7 @@ public class FightState : AbstractState
         {
             Quaternion rotation = _EnemyTr.rotation;
             rotation.SetLookRotation(_PlayerTr.position, Vector3.up);
-            _EnemyTr.rotation = new Quaternion(0,rotation.y,0,rotation.w);
+            _EnemyTr.LookAt(_PlayerTr,Vector3.up);
             _Weapon.MakeShoot(_PlayerTr.position);
         }
         

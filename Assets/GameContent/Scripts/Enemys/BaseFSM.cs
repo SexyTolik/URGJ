@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseFSM
 {
-    private AbstractState CurrentState;
+    public AbstractState CurrentState;
     private Dictionary<Type, AbstractState> _states = new Dictionary<Type, AbstractState>();
 
     public void AddState(AbstractState state)
